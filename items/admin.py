@@ -1,9 +1,9 @@
-from django.contrib import admin
+from django.contrib import admin        #new
 
-from .models import Item
+from .models import Item        #new
 
 
-class ItemAdmin(admin.ModelAdmin):
-    pass
+class ItemAdmin(admin.ModelAdmin):        #new
+    pass        #new
 
-admin.site.register(Item, ItemAdmin)
+admin.site.register(Item, ItemAdmin)        #new

@@ -1,15 +1,15 @@
-from rest_framework import generics
+from rest_framework import generics     #new
 
-from .models import Item
-from .serializers import ItemSerializer
-
-
-class ItemList(generics.ListCreateAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+from .models import Item     #new
+from .serializers import ItemSerializer     #new
 
 
-class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+class ItemList(generics.ListCreateAPIView):     #new
+    queryset = Item.objects.all()     #new
+    serializer_class = ItemSerializer     #new
+
+
+class ItemDetail(generics.RetrieveUpdateDestroyAPIView):     #new
+    queryset = Item.objects.all()     #new
+    serializer_class = ItemSerializer     #new
 

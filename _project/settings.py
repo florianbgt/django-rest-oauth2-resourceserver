@@ -39,35 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #local
     'users',     #new
-    'items',
+    'items',     #new
     #3rd party
-    'corsheaders',      #new
     'rest_framework',     #new
     'oauth2_provider',      #new
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'        #new
 
-MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',        #new    #need to be as high as possible
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
 OAUTH2_PROVIDER = {     #new
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 60*60,       #new
-    'REFRESH_TOKEN_EXPIRE_SECONDS': 24*60*60,     #new
     'SCOPES': {     #new
         'read': 'Read scope',       #new
         'write': 'Write scope',     #new
     },       #new
-    'RESOURCE_SERVER_INTROSPECTION_URL': 'http://localhost:8000/o/introspect/',
-    'RESOURCE_SERVER_INTROSPECTION_CREDENTIALS': ('item_API_id','item_API_secret'),
+    'RESOURCE_SERVER_INTROSPECTION_URL': 'http://localhost:8000/o/introspect/',     #new
+    'RESOURCE_SERVER_INTROSPECTION_CREDENTIALS': ('rs-id','rs-secret'),     #new
 }       #new
 
 REST_FRAMEWORK = {      #new
@@ -80,7 +66,15 @@ REST_FRAMEWORK = {      #new
     )      #new
 }      #new
 
-CORS_ALLOW_ALL_ORIGINS = True   #new        #Do not use in production 
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
 ROOT_URLCONF = '_project.urls'
 

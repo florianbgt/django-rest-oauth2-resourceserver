@@ -9,8 +9,6 @@ class CustomUser(AbstractUser):     #new
     last_name = None
     email = models.EmailField(max_length=50, unique=True)     #new
 
-    notification = models.BooleanField(default=True)
-
     USERNAME_FIELD = 'email'     #new
     REQUIRED_FIELDS = []       #new
 

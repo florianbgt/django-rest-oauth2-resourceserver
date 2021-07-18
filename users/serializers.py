@@ -1,21 +1,22 @@
-from rest_framework import serializers
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
+from rest_framework import serializers      #new
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'email']
+class SignUpSerializer(serializers.Serializer):      #new
+    email = serializers.EmailField()      #new
+    password = serializers.CharField()      #new
+    password2 = serializers.CharField()      #new
 
 
-class SignUpSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    password = serializers.CharField()
-    password2 = serializers.CharField()
+class TokenSerializer(serializers.Serializer):      #new
+    email = serializers.EmailField()      #new
+    password = serializers.CharField()      #new
 
 
-class TokenSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    password = serializers.CharField()
+class RefreshTokenSerializer(serializers.Serializer):      #new
+    refresh = serializers.EmailField()      #new
+
+
+class PasswordChangeSerializer(serializers.Serializer):      #new
+    old_password = serializers.CharField()      #new
+    password = serializers.CharField()      #new
+    password2 = serializers.CharField()      #new

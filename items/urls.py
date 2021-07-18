@@ -1,8 +1,8 @@
-from django.urls import path
-from .views import ItemList, ItemDetail
+from django.urls import path        #new
+from .views import ItemList, ItemDetail        #new
 
 
-urlpatterns = [
-    path('', ItemList.as_view()),
-    path('<pk>/', ItemDetail.as_view()),
-]
+urlpatterns = [        #new
+    path('', ItemList.as_view()),        #new
+    path('<pk>/', ItemDetail.as_view()),        #new
+]        #new
